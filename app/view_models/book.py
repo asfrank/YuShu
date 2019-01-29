@@ -28,10 +28,10 @@ class BookViewModel:
         book = {
             'title': data['title'],
             'publisher': data['publisher'],
-            'pages': data['pages'],
+            'pages': data['pages'] or '',
             'author': ','.join(data['author']),
             'price': data['price'],
-            'summary': data['summary'],
+            'summary': data['summary'] or '',
             'image': data['image']
         }
         return book
