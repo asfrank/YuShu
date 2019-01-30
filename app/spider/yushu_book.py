@@ -12,7 +12,7 @@ class YuShuBook:
     def __fill_single(self,data):
         if data:
             self.total = 1
-            self.books = self.books.append(data)
+            self.books.append(data)
 
     def __fill_collection(self,data):
         if data:

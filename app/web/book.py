@@ -1,9 +1,11 @@
+import json
+
 from flask import jsonify,request
 from app.forms.book import SearchForm
 
 from app.libs.helper import is_isbn_or_key
 from app.spider.yushu_book import YuShuBook
-from app.view_models.book import BookViewModel, BookCollection
+from app.view_models.book import BookCollection
 from . import web
 
 @web.route('/book/search')
@@ -20,5 +22,5 @@ def search():
         else:
             yushubook.search_by_keyword(q,page)
         books.fill(yushubook, q)
-        return jsonify(books)
+        return json.dumps(books, default=lambda x:x.__dict__)
     return jsonify(form.errors)
